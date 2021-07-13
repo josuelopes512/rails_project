@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+<div class="jumbotron">
+    <h1 class="display-4">Tipos de Mineração</h1>
+    <p><strong>Data: <%= data_br(Date.today) %></strong></p>
+    <hr class="my-4">
+    <p id="notice"><%= notice %></p>
+
+    <p>
+      <strong>Nome:</strong>
+      <%= @mining_type.name %>
+    </p>
+
+    <p>
+      <strong>Abreviação:</strong>
+      <%= @mining_type.acronym %>
+    </p>
+    <p class="lead">
+        
+    </p>
+    <br>
+    <%= link_to 'Editar', edit_mining_type_path(@mining_type), class:"btn btn-primary" , type:"button" %> |
+    <%= link_to 'Voltar', mining_types_path , class:"btn btn-primary" , type:"button"%>
+    <br>
+    <br>
+    <p>Você está em ambiente de <strong><%= ambiente_rails %></strong></p>
+</div>

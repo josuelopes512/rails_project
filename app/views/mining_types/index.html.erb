@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+<div class="jumbotron">
+  <h1 class="display-4">Tipos de Mineração</h1>
+
+  <hr class="my-4">
+
+  <p class="lead">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Description</th>
+          <th>Acronym</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @mining_types.each do |mining_type| %>
+          <tr>
+            <td><%= mining_type.name %></td>
+            <td><%= mining_type.acronym %></td>
+            <td><%= link_to 'Mostrar', mining_type, class:"btn btn-primary " , type:"button" %></td>
+            <td><%= link_to 'Editar', edit_mining_type_path(mining_type), class:"btn btn-primary" , type:"button" %></td>
+            <td><%= link_to 'Apagar', mining_type, method: :delete, data: { confirm: 'Deseja Apagar? ?' }, class:"btn btn-primary" , type:"button" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>  
+  </p>
+
+  <br>
+
+  <%= link_to 'Novo Tipo de Mineração', new_mining_type_path, class:"btn btn-primary" , type:"button" %>
+  <%= link_to 'Voltar', root_path, class:"btn btn-primary" , type:"button" %>
+  
+  <p>
+    Você está em ambiente de <strong><%= ambiente_rails %></strong>
+  </p>
+
+</div>

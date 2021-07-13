@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+<div class="jumbotron">
+  <h1 class="display-4">Moedas</h1>
+  <p><strong>Data: <%= data_br(Date.today) %></strong></p>
+  <hr class="my-4">
+ 
+  <p class="lead">
+    <p id="notice"><%= notice %></p>
+
+    <form>
+      <div class="form-group">
+        <%= label_tag 'Descrição'%>
+        <%= text_field_tag nil, @coin.description, class:"form-control", placeholder:"Bitcoin", disabled: true %>
+      </div>
+
+      <div class="form-group">
+        <%= label_tag 'Acrônimo' %>
+        <%= text_field_tag 'nil', @coin.acronym, class:"form-control", disabled: true %>
+      </div>
+
+      <div class="form-group">
+        <%= label_tag 'Imagem' %>
+        <%= text_field_tag 'nil', @coin.url_image, class:"form-control", disabled: true %>
+        <%# <%= image_tag coin.url_image, width: 50, height: 35 %> 
+      </div>
+
+      <div class="form-group">
+        <%= label_tag 'Tipo de Mineração' %>
+        <%= text_field_tag 'Tipo de Mineração', @coin.mining_type_id, class:"form-control", disabled: true %>
+      </div>
+
+     
+    </form>
+
+    <%= link_to 'Editar', edit_coin_path(@coin), class:"btn btn-primary" , type:"button" %>
+    <%= link_to 'Voltar', coins_path, class:"btn btn-primary" , type:"button" %>
+  </p>
+
+  <p>
+    Você está em ambiente de <strong><%= ambiente_rails %></strong>
+  </p>
+</div>

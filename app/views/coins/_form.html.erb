@@ -1,0 +1,39 @@
+<%= form_with(model: coin, local: true) do |form| %>
+  <% if coin.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(coin.errors.count, "error") %> prohibited this coin from being saved:</h2>
+      <ul>
+      <% coin.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :name, 'Descrição' %>
+    <%= form.text_field :name, class:"form-control", placeholder:"Bitcoin" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :acronym, 'Acrônimo' %>
+    <%= form.text_field :acronym, class:"form-control", placeholder:"BTC" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :url_image, 'URL da Imagem' %>
+    <%= form.text_field :url_image, class:"form-control", placeholder:"http://i.imgur.com/btc.png" %>
+    <%# <%= image_tag coin.url_image, width: 50, height: 35 %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :mining_type_id, 'Tipo de Mineração' %>
+    <%= form.select("mining_type_id", @mining_type_options, {include_blank: 'Selecione....'}, class:"form-control") %>
+    <%# <%= image_tag coin.url_image, width: 50, height: 35 %>
+  </div>
+
+  <div class="actions">
+    <br>
+    <%= form.submit 'Salvar Moeda' , class:"btn btn-primary" %>
+  </div>
+<% end %>

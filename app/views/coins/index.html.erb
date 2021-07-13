@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<div class="jumbotron">
+  <h1 class="display-4">Moedas</h1>
+  <p><strong>Data: <%= data_br(Date.today) %></strong></p>
+  <hr class="my-4">
+  <p class="lead">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Descrição</th>
+          <th>Sigla</th>
+          <th>Imagem</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @coins.each do |coin| %>
+          <tr>
+            <td><%= coin.description %></td>
+            <td><%= coin.acronym %></td>
+            <td><%= image_tag coin.url_image, width: 50, height: 35 %></td>
+            <td><%= link_to 'Mostrar', coin, class:"btn btn-primary" , type:"button"  %></td>
+            <td><%= link_to 'Editar', edit_coin_path(coin), class:"btn btn-primary" , type:"button" %></td>
+            <td><%= link_to 'Apagar', coin, method: :delete, data: { confirm: 'Deseja Apagar?' }, class:"btn btn-primary" , type:"button" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <br>
+    <%= link_to 'Nova Moeda', new_coin_path, class:"btn btn-primary" , type:"button" %>
+    <%= link_to 'Voltar', root_path, class:"btn btn-primary" , type:"button" %>
+  </p>
+  <p>
+    Você está em ambiente de <strong><%= ambiente_rails %></strong>
+  </p>
+</div>

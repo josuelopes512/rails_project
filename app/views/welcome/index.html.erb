@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+<div class="jumbotron">
+  <h1 class="display-4">Seja Bem-Vindo!</h1>
+  <p><strong>Data: <%= data_br(Date.today) %></strong></p>
+  <hr class="my-4">
+  <p><h2>Selecione uma opção:</h2><br></p>
+  <p class="lead">
+    <%= render "menu" %>
+  </p>
+  <p>
+    Você está em ambiente de <strong><%= ambiente_rails %></strong>
+  </p>
+</div>
+
+<%# <p>Find me in app/views/welcome/index.html.erb</p> %>
